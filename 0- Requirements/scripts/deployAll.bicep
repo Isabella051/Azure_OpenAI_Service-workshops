@@ -6,7 +6,7 @@ param serverName string = 'sqlserver-${uniqueString(resourceGroup().id)}'
 param databaseName string = 'aworks'
 param adminLogin string = 'SqlAdmin'
 @secure()
-param adminPassword string = 'ChangeYourAdminPassword1'
+param adminPassword string = 'MyAdminPassword1'
 
 // Speech Service params
 param SpeechServiceName string = 'aispeech-${uniqueString(resourceGroup().id)}'
@@ -18,39 +18,39 @@ param OpenAIServiceName string = 'openai-${uniqueString(resourceGroup().id)}'
 param openai_deployments array = [
   {
     name: 'text-embedding-ada-002'
-	  model_name: 'text-embedding-ada-002'
+    model_name: 'text-embedding-ada-002'
     version: '2'
     raiPolicyName: 'Microsoft.Default'
     sku_capacity: 20
     sku_name: 'Standard'
   }
   {
-    name: 'gpt-35-turbo-16k'
-	  model_name: 'gpt-35-turbo-16k'
-    version: '0613'
+    name: 'gpt-35-turbo'  // 替代 gpt-35-turbo-16k
+    model_name: 'gpt-35-turbo'
+    version: '0125'  // 最新稳定版本，支持更长上下文
     raiPolicyName: 'Microsoft.Default'
     sku_capacity: 20
     sku_name: 'Standard'
   }
   {
-    name: 'gpt-4'
-	  model_name: 'gpt-4'
-    version: '1106-Preview'
+    name: 'gpt-4o'  // 替代 gpt-v (vision-preview)，更强的多模态能力
+    model_name: 'gpt-4o'
+    version: '2024-11-20'
     raiPolicyName: 'Microsoft.Default'
     sku_capacity: 20
     sku_name: 'Standard'
   }
   {
-    name: 'gpt-4'
-	  model_name: 'gpt-v'
-    version: 'vision-preview'
+    name: 'gpt-4o-mini'  // 高效的轻量级选择
+    model_name: 'gpt-4o-mini'
+    version: '2024-07-18'
     raiPolicyName: 'Microsoft.Default'
     sku_capacity: 20
     sku_name: 'Standard'
   }
   {
     name: 'dall-e-3'
-	  model_name: 'dall-e-3'
+    model_name: 'dall-e-3'
     version: '3.0'
     raiPolicyName: 'Microsoft.Default'
     sku_capacity: 1

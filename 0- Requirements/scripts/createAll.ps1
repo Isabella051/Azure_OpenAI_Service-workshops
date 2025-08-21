@@ -1,4 +1,4 @@
-$SubscriptionId = ''
+$SubscriptionId = '981b86a9-a9fc-490a-bb16-4a3d8e6561c0'
 $resourceGroupName = "openai-workshop"
 $location = "swedencentral"
 
